@@ -1,0 +1,10 @@
+{:source-paths ["src", "css", "js"]
+ :dependencies [[reagent "0.9.0-rc2"]
+                [prismatic/schema "1.1.12"]
+                [garden "1.3.9"]]
+ :npm-deps {:phoenix "1.4.10"}
+ :builds {:app {:output-dir "../priv/static/js/"
+                :asset-path "."
+                :target :browser
+                :modules {:app {:init-fn app.main/main!}}
+                :devtools {:after-load app.main/reload!}}}}

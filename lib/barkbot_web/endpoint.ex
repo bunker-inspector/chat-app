@@ -15,6 +15,12 @@ defmodule BarkbotWeb.Endpoint do
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
+  plug Plug.Static,
+    at: "/cljs-runtime",
+    from: "priv/static/js/cljs-runtime",
+    from: :barkbot,
+    gzip: false
+
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
   if code_reloading? do
@@ -39,8 +45,8 @@ defmodule BarkbotWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_barkbot_key",
-    signing_salt: "8HOyOJs5"
+    key: System.get_env("SESSION_KEY"),
+    signing_salt: System.get_env("SESSION_SALT")
 
   plug BarkbotWeb.Router
 end

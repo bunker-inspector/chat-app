@@ -5,8 +5,8 @@ services:
     ports:
       - 5433:5432
     environment:
-      - POSTGRES_DB=barkbot_dev
-      - POSTGRES_USER=barkbot
+      - POSTGRES_DB=chatserver_dev
+      - POSTGRES_USER=chatserver
       - POSTGRES_PASSWORD=password
 
   app:

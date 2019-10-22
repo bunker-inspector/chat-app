@@ -3,7 +3,7 @@ defmodule Url do
   use Ecto.Schema
   require Logger
   import Ecto.Query
-  alias Barkbot.Repo
+  alias ChatServer.Repo
 
   @shortened_url_len 4
 

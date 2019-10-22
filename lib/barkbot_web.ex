@@ -1,12 +1,12 @@
-defmodule BarkbotWeb do
+defmodule ChatServerWeb do
   @moduledoc """
   The entrypoint for defining your web interface, such
   as controllers, views, channels and so on.
 
   This can be used in your application as:
 
-      use BarkbotWeb, :controller
-      use BarkbotWeb, :view
+  use ChatServerWeb, :controller
+  use ChatServerWeb, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -19,11 +19,11 @@ defmodule BarkbotWeb do
 
   def controller do
     quote do
-      use Phoenix.Controller, namespace: BarkbotWeb
+      use Phoenix.Controller, namespace: ChatServerWeb
 
       import Plug.Conn
-      import BarkbotWeb.Gettext
-      alias BarkbotWeb.Router.Helpers, as: Routes
+      import ChatServerWeb.Gettext
+      alias ChatServerWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -31,7 +31,7 @@ defmodule BarkbotWeb do
     quote do
       use Phoenix.View,
         root: "lib/barkbot_web/templates",
-        namespace: BarkbotWeb
+        namespace: ChatServerWeb
 
       # Import convenience functions from controllers
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
@@ -39,9 +39,9 @@ defmodule BarkbotWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import BarkbotWeb.ErrorHelpers
-      import BarkbotWeb.Gettext
-      alias BarkbotWeb.Router.Helpers, as: Routes
+      import ChatServerWeb.ErrorHelpers
+      import ChatServerWeb.Gettext
+      alias ChatServerWeb.Router.Helpers, as: Routes
     end
   end
 
@@ -56,7 +56,7 @@ defmodule BarkbotWeb do
   def channel do
     quote do
       use Phoenix.Channel
-      import BarkbotWeb.Gettext
+      import ChatServerWeb.Gettext
     end
   end
 

@@ -1,9 +1,9 @@
-defmodule Barkbot.MixProject do
+defmodule ChatServer.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :barkbot,
+      app: :chatserver,
       version: "0.1.0",
       elixir: "~> 1.5",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -19,7 +19,7 @@ defmodule Barkbot.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Barkbot.Application, []},
+      mod: {ChatServer.Application, []},
       extra_applications: [:logger, :runtime_tools,
                            :cachex, :scrivener_ecto,
                            :ecto_sql]
@@ -46,8 +46,6 @@ defmodule Barkbot.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:httpotion, "~> 3.1.3"},
-      {:oauther, "~> 1.1"},
-      {:extwitter, "~> 0.8"},
       {:cachex, "~> 3.2"},
       {:scrivener_ecto, "~> 2.0"},
       {:mustache, "~> 0.3.0"},

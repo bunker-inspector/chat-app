@@ -7,15 +7,15 @@
 # General application configuration
 use Mix.Config
 
-config :barkbot,
-  ecto_repos: [Barkbot.Repo]
+config :chatserver,
+  ecto_repos: [ChatServer.Repo]
 
 # Configures the endpoint
-config :barkbot, BarkbotWeb.Endpoint,
+config :chatserver, ChatServerWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [view: BarkbotWeb.ErrorView, accepts: ~w(html json)],
+  render_errors: [view: ChatServerWeb.ErrorView, accepts: ~w(html json)],
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
-  pubsub: [name: Barkbot.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: ChatServer.PubSub, adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -25,19 +25,12 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :barkbot, Barkbot.Repo,
+config :chatserver, ChatServer.Repo,
   database: System.get_env("DB_NAME"),
   username: System.get_env("DB_USER"),
   password: System.get_env("DB_PASS"),
   hostname: System.get_env("DB_HOST"),
   port: System.get_env("DB_PORT")
-
-config :extwitter, :oauth, [
-  consumer_key: System.get_env("TWITTER_CONSUMER_KEY"),
-  consumer_secret: System.get_env("TWITTER_CONSUMER_SECRET"),
-  access_token: System.get_env("TWITTER_ACCESS_TOKEN"),
-  access_token_secret: System.get_env("TWITTER_ACCESS_TOKEN_SECRET")
-]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

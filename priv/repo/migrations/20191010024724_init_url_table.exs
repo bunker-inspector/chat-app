@@ -3,7 +3,7 @@ defmodule Barkbot.Repo.Migrations.InitUrlTable do
 
   import Ecto.Query
 
-  alias Barkbot.Repo
+  alias ChatServer.Repo
 
   def up do
     #46655 is 'ZZZ' in base 36

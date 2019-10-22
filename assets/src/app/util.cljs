@@ -1,4 +1,6 @@
-(ns app.util)
+(ns app.util
+  (:require [clojure.string :as str]
+            [clojure.core.match :refer [match]]))
 
 (defn event->value
   [event]
@@ -14,3 +16,19 @@
   (fn [e]
     (when (= k (.-key e))
       (callback))))
+
+(defn ->clj
+  [js-obj]
+  (js->clj js-obj :keywordize-keys true))
+
+(defn re-class
+  [& args]
+  {:class
+   (->> (map (fn [x]
+               (match x
+                      [k t f] (if k (name t) (name f))
+                      [k cl] (when cl (name k))
+                      k (name k)))
+             args)
+        (filter some?)
+        (str/join " "))})

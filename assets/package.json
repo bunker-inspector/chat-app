@@ -1,19 +1,23 @@
 {
-  "name": "cljs-test",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "deploy": "shadow-cljs compile app",
-    "watch": "shadow-cljs watch app",
-    "release": "shadow-cljs release app"
-  },
-  "devDependencies": {
-    "js-yaml": ">=3.13.1"
-  },
-  "dependencies": {
-    "phoenix": "1.4.10",
-    "phoenix_html": "2.10.4",
-    "react": "16.9.0",
-    "react-dom": "16.9.0"
-  }
+    "name": "cljs-test",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "deploy": "shadow-cljs compile app",
+        "watch": "shadow-cljs watch app",
+        "release": "shadow-cljs release app",
+        "css": "node-sass ./scss -o ../priv/static/css",
+        "css:watch": "npm run css && node-sass ./scss -wo ../priv/static/css",
+        "foo": "ls css/**/*"
+    },
+    "devDependencies": {
+        "js-yaml": ">=3.13.1"
+    },
+    "dependencies": {
+        "phoenix": "1.4.10",
+        "phoenix_html": "2.10.4",
+        "react": "16.9.0",
+        "react-dom": "16.9.0",
+        "node-sass": "4.12.0"
+    }
 }
